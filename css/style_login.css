@@ -1,0 +1,397 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:
+    radial-gradient(circle at top left,#2b1b63 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#0099ff 0%,transparent 30%),
+    #050816;
+
+    color:white;
+    min-height:100vh;
+
+}
+
+/* HEADER */
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:25px 8%;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:700;
+color:#00d9ff;
+
+}
+
+.logo span{
+
+color:white;
+
+}
+
+nav{
+
+display:flex;
+gap:35px;
+
+}
+
+nav a{
+
+color:#d7d7d7;
+text-decoration:none;
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#00d9ff;
+
+}
+
+/* MAIN */
+
+main{
+
+display:grid;
+grid-template-columns:1fr 450px;
+
+align-items:center;
+
+padding:60px 8%;
+
+gap:60px;
+
+min-height:85vh;
+
+}
+
+/* HERO */
+
+.hero h1{
+
+font-size:60px;
+margin-bottom:20px;
+
+}
+
+.hero span{
+
+color:#00d9ff;
+
+}
+
+.hero p{
+
+max-width:500px;
+color:#c5c5c5;
+font-size:18px;
+margin-bottom:40px;
+
+}
+
+.abstract{
+
+height:350px;
+
+border-radius:25px;
+
+background:linear-gradient(135deg,#00d9ff,#6a2dff,#001b66);
+
+background-size:400%;
+
+animation:gradient 8s infinite alternate;
+
+box-shadow:0 0 50px rgba(0,217,255,.25);
+
+}
+
+@keyframes gradient{
+
+0%{
+background-position:left;
+}
+
+100%{
+background-position:right;
+}
+
+}
+
+/* CARD */
+
+.login-card{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+padding:40px;
+
+border-radius:25px;
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:0 10px 40px rgba(0,0,0,.4);
+
+}
+
+.login-card h2{
+
+text-align:center;
+
+margin-bottom:30px;
+
+}
+
+form{
+
+display:flex;
+flex-direction:column;
+gap:18px;
+
+}
+
+label{
+
+font-size:14px;
+
+}
+
+input[type=email],
+input[type=password]{
+
+padding:15px;
+
+background:#101725;
+
+border:1px solid #2d3a53;
+
+border-radius:12px;
+
+color:white;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+input:focus{
+
+border-color:#00d9ff;
+
+box-shadow:0 0 15px #00d9ff;
+
+}
+
+/* SENHA */
+
+.password{
+
+position:relative;
+
+display:flex;
+flex-direction:column;
+
+}
+
+.password span{
+
+position:absolute;
+
+right:15px;
+
+top:42px;
+
+cursor:pointer;
+
+}
+
+/* OPÇÕES */
+
+.options{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+font-size:14px;
+
+}
+
+.options label{
+
+display:flex;
+
+gap:8px;
+
+align-items:center;
+
+}
+
+.options a{
+
+color:#00d9ff;
+
+text-decoration:none;
+
+}
+
+.options a:hover{
+
+text-decoration:underline;
+
+}
+
+/* BOTÃO */
+
+button{
+
+margin-top:10px;
+
+padding:16px;
+
+border:none;
+
+border-radius:12px;
+
+background:linear-gradient(90deg,#00d9ff,#6f2dff);
+
+color:white;
+
+font-size:17px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 0 25px #00d9ff;
+
+}
+
+/* CADASTRO */
+
+.register{
+
+text-align:center;
+
+margin-top:15px;
+
+font-size:14px;
+
+}
+
+.register a{
+
+color:#00d9ff;
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+.register a:hover{
+
+text-decoration:underline;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+main{
+
+grid-template-columns:1fr;
+
+}
+
+.hero{
+
+text-align:center;
+
+}
+
+.hero p{
+
+margin:auto auto 30px;
+
+}
+
+.abstract{
+
+height:220px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+header{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+nav{
+
+flex-wrap:wrap;
+justify-content:center;
+
+}
+
+.hero h1{
+
+font-size:40px;
+
+}
+
+.login-card{
+
+padding:25px;
+
+}
+
+.options{
+
+flex-direction:column;
+
+gap:12px;
+
+align-items:flex-start;
+
+}
+
+}
