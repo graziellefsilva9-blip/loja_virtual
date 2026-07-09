@@ -1,65 +1,35 @@
-function atualizarTotal() {
+const lista = document.getElementById("listaProdutos");
 
-    let total = 0;
+const total = document.getElementById("total");
 
-    const linhas = document.querySelectorAll("tbody tr");
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-    linhas.forEach(linha => {
+let valorTotal = 0;
 
-        let preco = parseFloat(linha.querySelector(".preco").textContent);
+carrinho.forEach(produto=>{
 
-        let quantidade = parseInt(linha.querySelector(".quantidade").textContent);
+    valorTotal += produto.preco * produto.quantidade;
 
-        let subtotal = preco * quantidade;
+    lista.innerHTML += `
 
-        linha.querySelector(".subtotal").textContent =
-            subtotal.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL"
-            });
+    <div class="produto">
 
-        total += subtotal;
+        <img src="../${produto.imagem}">
 
-    });
+        <div>
 
-    document.getElementById("total").textContent =
-        total.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        });
+            <h3>${produto.nome}</h3>
 
-}
+            <p>R$ ${produto.preco.toFixed(2)}</p>
 
-document.querySelectorAll(".mais").forEach(botao => {
+            <p>Quantidade: ${produto.quantidade}</p>
 
-    botao.addEventListener("click", () => {
+        </div>
 
-        const qtd = botao.parentElement.querySelector(".quantidade");
+    </div>
 
-        qtd.textContent = parseInt(qtd.textContent) + 1;
-
-        atualizarTotal();
-
-    });
+    `;
 
 });
 
-document.querySelectorAll(".menos").forEach(botao => {
-
-    botao.addEventListener("click", () => {
-
-        const qtd = botao.parentElement.querySelector(".quantidade");
-
-        let valor = parseInt(qtd.textContent);
-
-        if (valor > 1) {
-
-            qtd.textContent = valor - 1;
-
-            atualizarTotal();
-
-        }
-
-    });
-
-});
+total.innerHTML = "Total: R$ " + valorTotal.toFixed(2);

@@ -1,94 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Tech Store</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Login - TECHSTORE</title>
 
     <link rel="stylesheet" href="../css/style_login.css">
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-<header>
+    <header>
 
-    <div class="logo">
-        TECH<span>STORE</span>
-    </div>
+        <div class="logo">
+            TECH<span>STORE</span>
+        </div>
 
-    <nav>
-        <a href="#">Loja</a>
-        <a href="#">Sobre Nós</a>
-        <a href="#">Suporte</a>
-        <a href="#">Cadastro</a>
-    </nav>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Loja</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="#">Suporte</a></li>
+                <li><a href="login.html" class="ativo">Login</a></li>
+            </ul>
+        </nav>
 
-</header>
+    </header>
 
-<main>
+    <main>
 
-    <section class="hero">
+        <section class="hero">
 
-        <h1>Bem-vindo de <span>Volta.</span></h1>
+            <h1>
+                Conecte-se ao <span>Futuro.</span>
+            </h1>
 
-        <p>
-            Faça login e tenha acesso às melhores ofertas em tecnologia, hardware e eletrônicos.
-        </p>
-
-        <div class="abstract"></div>
-
-    </section>
-
-    <section class="login-card">
-
-        <h2>Entrar na Conta</h2>
-
-        <form>
-
-            <label>E-mail</label>
-            <input type="email" placeholder="Digite seu e-mail" required>
-
-            <div class="password">
-
-                <label>Senha</label>
-
-                <input type="password" placeholder="Digite sua senha" required>
-
-                <span>👁</span>
-
-            </div>
-
-            <div class="options">
-
-                <label>
-                    <input type="checkbox">
-                    Lembrar-me
-                </label>
-
-                <a href="#">Esqueceu a senha?</a>
-
-            </div>
-
-            <button type="submit">
-                Entrar
-            </button>
-
-            <p class="register">
-                Ainda não possui conta?
-                <a href="../paginas/cadastro.html">Criar Conta</a>
+            <p>
+                Os melhores eletrônicos, tecnologia de ponta e uma experiência criada para quem vive inovação.
             </p>
 
-        </form>
+            <div class="abstract"></div>
 
-    </section>
+        </section>
 
-</main>
+        <section class="login-card">
+
+            <h2>Login Tech</h2>
+
+            <form>
+
+                <label for="email">E-mail</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
+
+                <div class="password">
+
+                    <label for="senha">Senha</label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+
+                    <span>👁</span>
+
+                </div>
+
+                <div class="options">
+
+                    <label>
+                        <input type="checkbox">
+                        Lembrar-me
+                    </label>
+
+                    <a href="#">Esqueceu a senha?</a>
+
+                </div>
+
+                <button type="submit">
+                    Entrar
+                </button>
+
+                <div class="register">
+
+                    Não possui conta?
+                    <a href="cadastro.html">Cadastre-se</a>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
 
 </body>
+
 </html>

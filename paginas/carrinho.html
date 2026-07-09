@@ -1,56 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-        <meta charset="UTF-8">
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       
-        <title>Cadastro Tech Store</title>
-        <link rel="stylesheet" href="../css/style_carrinho.css">
-    
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | Tech Store</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style_carrinho.css">
+    <script src="../js/produto.js" defer></script>
+
 </head>
+
 <body>
 
+<header>
 
-<h1>Carrinho de Compras</h1>
+    <div class="logo">
+        TECH<span>STORE</span>
+    </div>
 
-<table>
+    <nav>
+        <a href="#">Loja</a>
+        <a href="sobre.html">Sobre Nós</a>
+        <a href="#">Suporte</a>
+        <a href="cadastro.html">Cadastro</a>
+    </nav>
 
-<tr>
-    <th>Produto</th>
-    <th>Quantidade</th>
-    <th>Preço</th>
-    <th>Subtotal</th>
-</tr>
+</head>
 
-<tr>
-    <td>Moto G06</td>
-    <td>1</td>
-    <td>R$ 1.200,00</td>
-    <td>R$ 1.200,00</td>
-</tr>
+<body>
 
-<tr>
-    <td>Samsung Galaxy</td>
-    <td>2</td>
-    <td>R$ 1.900,00</td>
-    <td>R$ 3.800,00</td>
-</tr>
+<header>
 
-<tr>
-    <td colspan="3"><strong>Total</strong></td>
-    <td><strong>R$ 5.000,00</strong></td>
-</tr>
+    <h1>🛒 Carrinho de Compras</h1>
 
-</table>
+</header>
 
-<button>Finalizar Compra</button>
+<main class="container">
+
+    <section class="produtos">
+
+        <div id="listaProdutos"></div>
+
+    </section>
+
+    <aside class="resumo">
+
+        <h2>Resumo da Compra</h2>
+
+        <div class="resumo-item">
+
+            <span>Produtos</span>
+
+            <strong id="valorProdutos">R$ 0,00</strong>
+
+        </div>
+
+        <div class="resumo-item">
+
+            <span>Frete</span>
+
+            <strong id="valorFrete">R$ 30,00</strong>
+
+        </div>
+
+        <hr>
+
+        <div class="resumo-item total">
+
+            <span>Total</span>
+
+            <strong id="valorTotal">R$ 0,00</strong>
+
+        </div>
+
+        <button id="btnFinalizar">
+
+            Finalizar Compra
+
+        </button>
+
+    </aside>
+
+</main>
+
+<script src="../js/carrinho.js"></script>
 
 </body>
+
 </html>
