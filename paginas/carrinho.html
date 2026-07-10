@@ -1,95 +1,253 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho | Tech Store</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja Virtual</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../css/style_carrinho.css">
-    <script src="../js/lista_produto.js" defer></script>
+<link rel="stylesheet" href="../css/style_carrinho.css">
 
 </head>
 
 <body>
 
-<header>
+<main id="geral">
 
-    <div class="logo">
-        TECH<span>STORE</span>
+<header id="cabeçalho">
+
+<div id="logo">
+    TECHSTORE
+</div>
+
+<nav id="menu">
+
+<ul>
+
+<li><a href="../paginas/cadastro.html">Cadastro</a></li>
+<li><a href="../paginas/sobre.html">Sobre</a></li>
+<li><a href="../paginas/login.html">Login</a></li>
+<li><a href="../carrinho.html"><img src="../imagens/carrinho.png" alt="Carrinho"></a></li>
+<li><a href="../index.html">Início</a></li>
+
+</ul>
+</nav>
+</header>
+<section id="pesquisa">
+<h3>Meu Carrinho</h3>
+</section>
+<section id="carrinho">
+    <section id="itens-carrinho">
+    <section class="item">
+        <div class="img-item">
+            <img src="../imagens/iphone17promax.png" alt="celulares">
+
+</div>
+
+    <div id="descricoes-itens">
+     <div class="descricao">
+        Smartphones
+</div>
+<div class="valores">
+
+<p>R$ 10.000,00</p>
+
+        <div class="input-quantidade">
+        <input type="number"
+        name="quant01"
+        id="quant01"
+        class="input-item"
+        value="1"
+        min="1">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="item">
+    <div class="img-item">
+        <img src="../imagens/celularsamsung.png" alt="celulares">
+
+</div>
+<div id="descricoes-itens">
+    <div class="descricao">
+        Smartphones
+</div>
+
+    <div class="valores">
+    <p>R$ 1500,00</p>
+    <div class="input-quantidade">
+
+    <input type="number"
+     name="quant02"
+    id="quant02"
+    class="input-item"
+    value="1"
+    min="1">
+
+            </div>
+
+        </div>
+
     </div>
 
-    <nav>
-        <a href="../index.html">Loja</a>
-        <a href="sobre.html">Sobre Nós</a>
-        <a href="#">Suporte</a>
-      
-    </nav>
+</section>
 
-</head>
 
-<body>
 
-<header>
+<section class="item">
 
-    <h1>🛒 Carrinho de Compras</h1>
+<div class="img-item">
 
-</header>
+<img src="../imagens/celularpositivop41.png" alt="celulares">
 
-<main class="container">
+</div>
 
-    <section class="produtos">
+<div id="descricoes-itens">
 
-        <div id="listaProdutos"></div>
+<div class="descricao">
+    Smartphones
+</div>
 
-    </section>
+<div class="valores">
 
-    <aside class="resumo">
+<p>R$ 110,00</p>
 
-        <h2>Resumo da Compra</h2>
+<div class="input-quantidade">
 
-        <div class="resumo-item">
-
-            <span>Produtos</span>
-
-            <strong id="valorProdutos">R$ 0,00</strong>
+<input type="number"
+name="quant03"
+id="quant03"
+class="input-item"
+value="1"
+min="1">
 
         </div>
 
-        <div class="resumo-item">
+    </div>
 
-            <span>Frete</span>
+</div>
 
-            <strong id="valorFrete">R$ 30,00</strong>
+        </section>
 
-        </div>
+</section>
 
-        <hr>
 
-        <div class="resumo-item total">
 
-            <span>Total</span>
+<div id="valores-carrinho">
 
-            <strong id="valorTotal">R$ 0,00</strong>
+<div id="div-cep">
 
-        </div>
+<h2 class="titulo-valores-carrinho">
+CEP
+</h2>
 
-        <button id="btnFinalizar">
+<div id="input-cep">
 
-            Finalizar Compra
+<input
+type="text"
+name="input-cep"
+id="input-cep"
+class="input-cep"
+placeholder="Digite seu CEP">
 
-        </button>
+</div>
 
-    </aside>
+</div>
 
-</main>
 
-<script src="../js/carrinho.js"></script>
+
+<div id="div-calc-valor">
+
+<h2 class="titulo-valores-carrinho">
+Resumo da Compra
+</h2>
+
+<p class="valor">
+Subtotal: R$ 11.600,00
+</p>
+
+<p class="valor">
+Frete: R$ 30,00
+</p>
+
+</div>
+
+
+
+<div id="div-calc-valor-pagar">
+
+<h2 class="titulo-valores-carrinho">
+Total a Pagar
+</h2>
+
+<p id="valor-pagar" class="valor">
+
+R$ 530,00
+
+</p>
+
+</div>
+
+
+
+<div id="div-calc-valor">
+
+<h2 class="titulo-valores-carrinho">
+
+Forma de Pagamento
+
+</h2>
+
+<p>
+
+<input type="radio" name="pagamento">
+PIX
+
+</p>
+
+<p>
+
+<input type="radio" name="pagamento">
+Cartão de Crédito
+
+</p>
+
+<p>
+
+<input type="radio" name="pagamento">
+Boleto
+
+</p>
+
+</div>
+
+
+
+<button id="btn-continuar" class="btn-carrinho">
+
+Continuar Comprando
+
+</button>
+
+
+<button id="btn-finalizar" class="btn-carrinho">
+
+Finalizar Compra
+</button>
+</div>
+
+</section>
+
+<footer id="rodape">
+<h2>
+&copy; 2026 TECHSTORE S.A. Todos os direitos reservados.
+</h2>
+<p>
+Formas de pagamento: Pix, Cartões de Débito e Crédito.
+</p>
+ </footer>
+    </main>
 
 </body>
-
 </html>

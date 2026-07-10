@@ -10,106 +10,214 @@ body{
     radial-gradient(circle at top left,#2b1b63 0%,transparent 35%),
     radial-gradient(circle at bottom right,#0099ff 0%,transparent 30%),
     #050816;
-
-    color:white;
-    min-height:100vh;
-    padding:40px;
+    color:#fff;
 }
 
-.carrinho{
-    max-width:1100px;
-    margin:auto;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
-    border-radius:20px;
-    padding:40px;
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:0 10px 40px rgba(0,0,0,.4);
-}
+/*================ HEADER ================*/
 
-.carrinho h1{
-    text-align:center;
-    color:#00d9ff;
-    margin-bottom:35px;
-    font-size:38px;
-}
-
-table{
+#cabeçalho{
     width:100%;
-    border-collapse:collapse;
-    overflow:hidden;
-    border-radius:15px;
-}
-
-th{
-    background:#00d9ff;
-    color:#050816;
-    padding:18px;
-    font-size:18px;
-}
-
-td{
-    padding:20px;
-    text-align:center;
-    border-bottom:1px solid rgba(255,255,255,.1);
-    color:#e8e8e8;
-}
-
-tr:hover{
-    background:rgba(255,255,255,.05);
-}
-
-td img{
-    width:90px;
-    border-radius:10px;
-}
-
-.total{
-    margin-top:30px;
     display:flex;
-    justify-content:flex-end;
+    justify-content:space-between;
     align-items:center;
-    gap:15px;
-    font-size:28px;
+    padding:20px 8%;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+#logo{
+    font-size:30px;
     font-weight:bold;
     color:#00d9ff;
 }
 
-button{
-    margin-top:30px;
+#menu ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+    align-items:center;
+}
+
+#menu a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+#menu a:hover{
+    color:#00d9ff;
+}
+
+#menu img{
+    width:35px;
+}
+
+/*================ TITULO ================*/
+
+#pesquisa{
+    width:85%;
+    margin:40px auto;
+}
+
+#pesquisa h3{
+    font-size:35px;
+    color:#00d9ff;
+}
+
+/*================ CARRINHO ================*/
+
+#carrinho{
+    width:85%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
+    margin-bottom:50px;
+}
+
+/*================ LISTA PRODUTOS ================*/
+
+#itens-carrinho{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.item{
+    display:flex;
+    gap:20px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border-radius:20px;
+    padding:20px;
+    align-items:center;
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.img-item img{
+    width:160px;
+}
+
+#descricoes-itens{
     width:100%;
-    padding:18px;
+}
+
+.descricao{
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.valores{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.valores p{
+    font-size:22px;
+    color:#00d9ff;
+    font-weight:bold;
+}
+
+.input-item{
+    width:80px;
+    padding:8px;
     border:none;
-    border-radius:12px;
+    border-radius:8px;
+    text-align:center;
+    font-size:18px;
+}
+
+/*================ LADO DIREITO ================*/
+
+#valores-carrinho{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border-radius:20px;
+    padding:25px;
+    border:1px solid rgba(255,255,255,.15);
+
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+
+    height:max-content;
+}
+
+.titulo-valores-carrinho{
+    color:#00d9ff;
+    margin-bottom:15px;
+}
+
+.input-cep{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+}
+
+.valor{
+    margin:10px 0;
+    font-size:18px;
+}
+
+#valor-pagar{
+    color:#00d9ff;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.btn-carrinho{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
     background:linear-gradient(90deg,#00d9ff,#6f2dff);
     color:white;
     font-size:18px;
-    font-weight:600;
     cursor:pointer;
     transition:.3s;
 }
 
-button:hover{
+.btn-carrinho:hover{
     transform:translateY(-3px);
-    box-shadow:0 0 25px #00d9ff;
+    box-shadow:0 0 20px #00d9ff;
 }
 
-@media(max-width:768px){
+/*================ FOOTER ================*/
 
-    .carrinho{
-        padding:20px;
+#rodape{
+    border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+#rodape h2{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+/*================ RESPONSIVO ================*/
+
+@media(max-width:900px){
+
+    #carrinho{
+        grid-template-columns:1fr;
     }
 
-    table{
-        font-size:14px;
+    .item{
+        flex-direction:column;
+        text-align:center;
     }
 
-    td img{
-        width:60px;
+    .valores{
+        flex-direction:column;
+        gap:15px;
     }
 
-    .total{
-        justify-content:center;
-        font-size:22px;
+    .img-item img{
+        width:180px;
     }
+
 }
