@@ -2,40 +2,95 @@ import { produtos } from './lista_produtos.js'
 
 const sectionCards = document.querySelector('#cards')
 
-const listarProdutos = () => {
-
+// FILTRA OS PRODUTOS
+const filtroProdutos = (idSecao) => {
+    return produtos.filter(elem => elem.id_secao === idSecao)
 }
 
-//CHAMANDO A FUNÇÃO listarProdutos
-listarProdutos()
+// MONTA OS CARDS
+const montaCards = (objProduto) => {
 
-//MONTANDO OS MENUS SEÇÕES
+    sectionCards.innerHTML = ''
+
+    objProduto.forEach((elem) => {
+
+        const divCards = document.createElement('div')
+        divCards.className = 'card'
+
+        const imgCard = document.createElement('img')
+        imgCard.src = elem.caminho_imagem
+        imgCard.alt = elem.descricao_produto
+
+        const pCard = document.createElement('p')
+        pCard.innerHTML = elem.descricao_produto
+
+        const h2Card = document.createElement('h2')
+        h2Card.innerHTML = `R$ ${elem.valor_unitario.toFixed(2).replace('.', ',')}`
+
+        const btnCard = document.createElement('button')
+        btnCard.className = 'btn-add'
+        btnCard.innerHTML = 'Adicionar'
+
+        divCards.appendChild(imgCard)
+        divCards.appendChild(pCard)
+        divCards.appendChild(h2Card)
+        divCards.appendChild(btnCard)
+
+        sectionCards.appendChild(divCards)
+    })
+}
+
+// MOSTRA TODOS OS PRODUTOS
+const listarProdutos = () => {
+    montaCards(produtos)
+}
+
+// MONTA O MENU
 const menuSecoes = () => {
+
     const mapSecoes = new Map()
 
     produtos.forEach((elem) => {
         mapSecoes.set(elem.id_secao, elem)
     })
 
-    const secoesFiltradas = Array.from(mapSecoes.values())
-
-    return secoesFiltradas
+    return Array.from(mapSecoes.values())
 }
 
-//FUNÇÃO PARA INSERIR OS MENUS NA LISTA
+// CARREGA AS SEÇÕES
 const carregaSecoes = () => {
+
     const ulMenuSecoes = document.querySelector('#menu-secoes')
     ulMenuSecoes.innerHTML = ''
 
-    menuSecoes().forEach((elem, i) => {
+    // BOTÃO TODOS
+    const liTodos = document.createElement('li')
+
+    const aTodos = document.createElement('a')
+    aTodos.href = '#'
+    aTodos.className = 'link-secao'
+    aTodos.innerHTML = 'Todos'
+
+    aTodos.addEventListener('click', (e) => {
+        e.preventDefault()
+        listarProdutos()
+    })
+
+    liTodos.appendChild(aTodos)
+    ulMenuSecoes.appendChild(liTodos)
+
+    // DEMAIS SEÇÕES
+    menuSecoes().forEach((elem) => {
+
         const liMenu = document.createElement('li')
 
         const aMenu = document.createElement('a')
-        aMenu.setAttribute('href', '#')
-        aMenu.setAttribute('class', 'link-secao')
+        aMenu.href = '#'
+        aMenu.className = 'link-secao'
         aMenu.innerHTML = elem.secao
 
-        aMenu.addEventListener('click', () => {
+        aMenu.addEventListener('click', (e) => {
+            e.preventDefault()
             montaCards(filtroProdutos(elem.id_secao))
         })
 
@@ -44,40 +99,6 @@ const carregaSecoes = () => {
     })
 }
 
+// CHAMADAS
 carregaSecoes()
-
-const filtroProdutos = (idSecao) => {
-    return produtos.filter(elem => elem.id_secao === idSecao)
-}
-
-const montaCards = (objProduto) => {
-
-    sectionCards.innerHTML = ''
-
-    objProduto.forEach((elem, i) => {
-        const divCards = document.createElement('div')
-        divCards.setAttribute('class', 'card')
-
-        const imgCard = document.createElement('img')
-        imgCard.setAttribute('src', elem.caminho_imagem)
-        imgCard.setAttribute('alt', elem.descricao_produto)
-
-        const pCard = document.createElement('p')
-        pCard.innerHTML = elem.descricao_produto
-
-        const h2Card = document.createElement('h2')
-        h2Card.innerHTML = `R$ ${parseFloat(elem.valor_unitario).toFixed(2).replace('.', ',')}`
-
-        const btnCard = document.createElement('button')
-        btnCard.setAttribute('class', 'btn-add')
-        btnCard.innerHTML = 'adicionar'
-
-        divCards.appendChild(imgCard)
-        divCards.appendChild(pCard)
-        divCards.appendChild(h2Card)
-        divCards.appendChild(btnCard)
-
-        sectionCards.appendChild(imgCard)
-    })
-
-}
+listarProdutos()
