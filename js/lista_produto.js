@@ -2,10 +2,10 @@ const produtos = [
     // ===== CELULARES =====
     {
         id_produto: 1,
-        descricao_produto: "Samsung Galaxy S25",
+        descricao_produto: "Motorola",
         valor_unitario: 4999.90,
         unidade: "UN",
-        caminho_imagem: "img/celulares/galaxy-s25.png",
+        caminho_imagem: "imagens/motog06.png",
         id_secao: 1,
         secao: "Celulares"
     },
