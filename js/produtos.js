@@ -1,6 +1,6 @@
 import { produtos } from './lista_produtos.js'
 
-import{ addItem} from './carrinho.js'
+import { addItem} from './carrinho.js'
 
 const sectionCards = document.querySelector('#cards')
 
@@ -34,6 +34,7 @@ const montaCards = (objProduto) => {
         btnCard.innerHTML = 'Adicionar'
 
         btnCard.addEventListener('click', () =>{
+            addItem(elem);
             window.location.href = "paginas/carrinho.html"
         })
 

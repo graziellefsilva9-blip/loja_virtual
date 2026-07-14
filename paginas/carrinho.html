@@ -34,162 +34,79 @@
 </nav>
 </header>
 <section id="pesquisa">
-<h3>Meu Carrinho</h3>
-</section>
+<h3>Meu Carrinho</h3> </section>
+
 <section id="carrinho">
-    <section id="itens-carrinho">
-    <section class="item">
-        <div class="img-item">
-            <img src="../imagens/iphone17promax.png" alt="celulares">
+    <section id="lista-carrinho"></section>
 
-</div>
+    <div id="valores-carrinho">
 
-    <div id="descricoes-itens">
-     <div class="descricao">
-        Smartphones
-</div>
-<div class="valores">
+        <div id="div-cep">
 
-<p>R$ 10.000,00</p>
+            <h2 class="titulo-valores-carrinho">
+                CEP
+            </h2>
 
-        <div class="input-quantidade">
-        <input type="number"
-        name="quant01"
-        id="quant01"
-        class="input-item"
-        value="1"
-        min="1">
+            <input
+                type="text"
+                id="cep"
+                class="input-cep"
+                placeholder="Digite seu CEP">
 
-            </div>
-        </div>
-    </div>
-</section>
+            <br><br>
 
-<section class="item">
-    <div class="img-item">
-        <img src="../imagens/celularsamsung.png" alt="celulares">
+            <button
+                class="btn-carrinho"
+                onclick="calcularFrete()">
 
-</div>
-<div id="descricoes-itens">
-    <div class="descricao">
-        Smartphones
-</div>
+                Calcular Frete
 
-    <div class="valores">
-    <p>R$ 1500,00</p>
-    <div class="input-quantidade">
+            </button>
 
-    <input type="number"
-     name="quant02"
-    id="quant02"
-    class="input-item"
-    value="1"
-    min="1">
+            <p id="resultado-frete" class="valor">
 
-            </div>
+                Frete: R$ 0,00
+
+            </p>
 
         </div>
 
-    </div>
+        <div id="div-calc-valor">
 
-</section>
+            <h2 class="titulo-valores-carrinho">
 
+                Resumo da Compra
 
+            </h2>
 
-<section class="item">
+            <p class="valor">
 
-<div class="img-item">
+                Subtotal:
+                R$
+                <span id="total">
+                    0,00
+                </span>
 
-<img src="../imagens/celularpositivop41.png" alt="celulares">
-
-</div>
-
-<div id="descricoes-itens">
-
-<div class="descricao">
-    Smartphones
-</div>
-
-<div class="valores">
-
-<p>R$ 110,00</p>
-
-<div class="input-quantidade">
-
-<input type="number"
-name="quant03"
-id="quant03"
-class="input-item"
-value="1"
-min="1">
+            </p>
 
         </div>
 
-    </div>
+        <div id="div-calc-valor-pagar">
 
-</div>
+            <h2 class="titulo-valores-carrinho">
 
-        </section>
+                Total a Pagar
 
-</section>
+            </h2>
 
+            <p id="valor-pagar" class="valor">
 
+                R$
+                <span id="total-final">
 
-<div id="valores-carrinho">
+                    0,00
 
-<div id="div-cep">
-
-<h2 class="titulo-valores-carrinho">
-CEP
-</h2>
-
-<div id="input-cep">
-
-<input
-type="text"
-name="input-cep"
-id="input-cep"
-class="input-cep"
-placeholder="Digite seu CEP">
-
-</div>
-
-</div>
-
-
-
-<div id="div-calc-valor">
-
-<h2 class="titulo-valores-carrinho">
-Resumo da Compra
-</h2>
-
-<p class="valor">
-Subtotal: R$ 11.600,00
-</p>
-
-<p class="valor">
-Frete: R$ 30,00
-</p>
-
-</div>
-
-
-
-<div id="div-calc-valor-pagar">
-
-<h2 class="titulo-valores-carrinho">
-Total a Pagar
-</h2>
-
-<p id="valor-pagar" class="valor">
-
-R$ 530,00
-
-</p>
-
-</div>
-
+                </span>
 
 
 <div id="div-calc-valor">
@@ -223,15 +140,7 @@ Boleto
 
 </div>
 
-
-
-<button id="btn-continuar" class="btn-carrinho">
-
-Continuar Comprando
-
-</button>
-
-
+<div>
 <button id="btn-finalizar" class="btn-carrinho">
 
 Finalizar Compra

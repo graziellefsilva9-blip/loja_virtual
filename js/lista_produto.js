@@ -14,7 +14,7 @@ const produtos = [
         descricao_produto: "iPhone 16",
         valor_unitario: 7299.90,
         unidade: "UN",
-        caminho_imagem: "img/celulares/iphone16.png",
+        caminho_imagem: "/imagens/iphone17promax.png",
         id_secao: 1,
         secao: "Celulares"
     },
