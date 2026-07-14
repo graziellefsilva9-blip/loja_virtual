@@ -1,5 +1,7 @@
 import { produtos } from './lista_produtos.js'
 
+import{ addItem} from './carrinho.js'
+
 const sectionCards = document.querySelector('#cards')
 
 // FILTRA OS PRODUTOS
@@ -31,6 +33,10 @@ const montaCards = (objProduto) => {
         btnCard.className = 'btn-add'
         btnCard.innerHTML = 'Adicionar'
 
+        btnCard.addEventListener('click', () =>{
+            window.location.href = "paginas/carrinho.html"
+        })
+
         divCards.appendChild(imgCard)
         divCards.appendChild(pCard)
         divCards.appendChild(h2Card)
@@ -39,6 +45,19 @@ const montaCards = (objProduto) => {
         sectionCards.appendChild(divCards)
     })
 }
+ const inputPesquisa = document.querySelector('#pesquisa');
+
+ inputPesquisa.addEventListener('input', (evt) => {
+     const txtInput = evt.target.value.toLowerCase().trim();
+ 
+     const resultado = produtos.filter(produto =>
+         produto.descricao_produto.toLowerCase().includes(txtInput)
+     );
+ 
+     montaCards(resultado);
+ });
+
+
 
 // MOSTRA TODOS OS PRODUTOS
 const listarProdutos = () => {
@@ -56,6 +75,8 @@ const menuSecoes = () => {
 
     return Array.from(mapSecoes.values())
 }
+
+
 
 // CARREGA AS SEÇÕES
 const carregaSecoes = () => {
