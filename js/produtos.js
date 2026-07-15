@@ -1,8 +1,8 @@
-import { produtos } from './lista_produto.js';
+import { produtos } from './lista_produtos.js'
 
-import { addItem} from './carrinho.js'
+import{ addItem} from './carrinho.js'
 
-const sectionCards = document.querySelector('.cards');
+const sectionCards = document.querySelector('#cards')
 
 // FILTRA OS PRODUTOS
 const filtroProdutos = (idSecao) => {
@@ -29,14 +29,16 @@ const montaCards = (objProduto) => {
         const h2Card = document.createElement('h2')
         h2Card.innerHTML = `R$ ${elem.valor_unitario.toFixed(2).replace('.', ',')}`
 
-        const btnCard = document.createElement('button')
-        btnCard.className = 'btn-add'
-        btnCard.innerHTML = 'Adicionar'
-
-        btnCard.addEventListener('click', () =>{
+        const btnCard = document.createElement("button");
+        btnCard.className = "btn-add";
+        btnCard.textContent = "Adicionar";
+        
+        btnCard.addEventListener("click", () => {
             addItem(elem);
-            window.location.href = "paginas/carrinho.html"
-        })
+            window.location.href = "paginas/carrinho.html";
+        });
+       
+
 
         divCards.appendChild(imgCard)
         divCards.appendChild(pCard)
