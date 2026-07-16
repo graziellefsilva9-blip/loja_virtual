@@ -1,6 +1,6 @@
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-// Adiciona produto
+// Adiciona produto ao carrinho
 export function addItem(produto) {
 
     const itemExistente = carrinho.find(item =>
@@ -22,8 +22,25 @@ export function addItem(produto) {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
 
-// Atualiza a tela
+// Remove produto
+function removerItem(idProduto) {
+
+    carrinho = carrinho.filter(produto =>
+        produto.id_produto !== idProduto
+    );
+
+    localStorage.setItem(
+        "carrinho",
+        JSON.stringify(carrinho)
+    );
+
+    renderizarCarrinho();
+}
+
+// Atualiza a tela do carrinho
 function renderizarCarrinho() {
+
+    carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
     const listaCarrinho = document.querySelector("#lista-carrinho");
 
@@ -46,7 +63,12 @@ function renderizarCarrinho() {
 
                 <h3>${produto.descricao_produto}</h3>
 
-                <p>Valor Unitário: R$ ${produto.valor_unitario.toFixed(2).replace(".", ",")}</p>
+                <p>
+                    Valor Unitário:
+                    <strong>
+                        R$ ${produto.valor_unitario.toFixed(2).replace(".", ",")}
+                    </strong>
+                </p>
 
                 <label>Quantidade:</label>
 
@@ -55,13 +77,21 @@ function renderizarCarrinho() {
                     class="quantidade"
                     data-id="${produto.id_produto}"
                     value="${produto.quantidade}"
-                    min="1">
+                    min="1"
+                    step="1">
 
-                <p>Subtotal:
+                <p>
+                    Subtotal:
                     <strong>
                         R$ ${subtotal.toFixed(2).replace(".", ",")}
                     </strong>
                 </p>
+
+                <button
+                    class="btn-remover"
+                    data-id="${produto.id_produto}">
+                    Remover
+                </button>
 
                 <hr>
 
@@ -75,11 +105,12 @@ function renderizarCarrinho() {
     document.querySelector("#total-final").textContent =
         total.toFixed(2).replace(".", ",");
 
-    adicionarEventos();
+    adicionarEventosQuantidade();
+    adicionarEventosRemover();
 }
 
-// Eventos dos inputs
-function adicionarEventos() {
+// Eventos do input quantidade
+function adicionarEventosQuantidade() {
 
     const inputs = document.querySelectorAll(".quantidade");
 
@@ -89,7 +120,6 @@ function adicionarEventos() {
 
             let quantidade = parseInt(e.target.value);
 
-            // valida quantidade
             if (isNaN(quantidade) || quantidade < 1) {
                 quantidade = 1;
                 e.target.value = 1;
@@ -111,6 +141,7 @@ function adicionarEventos() {
                 );
 
                 renderizarCarrinho();
+
             }
 
         });
@@ -119,8 +150,30 @@ function adicionarEventos() {
 
 }
 
-// Carrega o carrinho
+
+// Eventos do botão remover
+function adicionarEventosRemover() {
+
+    const botoes = document.querySelectorAll(".btn-remover");
+
+    botoes.forEach(botao => {
+
+        botao.addEventListener("click", () => {
+
+            const id = Number(botao.dataset.id);
+
+            removerItem(id);
+
+        });
+
+    });
+
+}
+
+
+// Carrega carrinho
 renderizarCarrinho();
+
 
 // Finalizar compra
 const btnFinalizar = document.querySelector("#btn-finalizar");
@@ -130,13 +183,18 @@ if (btnFinalizar) {
     btnFinalizar.addEventListener("click", () => {
 
         if (carrinho.length === 0) {
+
             alert("Seu carrinho está vazio!");
+
             return;
+
         }
 
         alert("Compra finalizada com sucesso!");
 
         localStorage.removeItem("carrinho");
+
+        carrinho = [];
 
         window.location.href = "../index.html";
 
